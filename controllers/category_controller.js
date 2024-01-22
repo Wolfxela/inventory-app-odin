@@ -1,5 +1,0 @@
-const express = require("express")
-const Category = require("./category_model")
-const mongoose = require("mongoose")
-const { body, validationResult } = require("express-validator")
-const asyncHandler = require("express-async-handler")
