@@ -1,0 +1,44 @@
+<h3><%=title%></h3>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text" class="form-control" placeholder="name" required
+         value="<%= locals.item === undefined ? '' : locals.item.name %>" >
+
+        <label for="price">Price:</label>
+        <input id="price" name="price" type="text" class="form-control" placeholder="price" required
+         value="<%= locals.item === undefined ? '' : locals.item.price %>" >
+
+        <label for="stock">Number of items available in stock:</label>
+        <input id="stock" name="stock" type="text" class="form-control" placeholder="stock" required
+         value="<%= locals.item === undefined ? '' : locals.item.stock %>" >
+
+        <label for="">Categories:</label>
+        <div>
+            <%categories.forEach(function(category){%>
+                <div style="display: inline; padding-right:10px">
+                    <%if(category.checked){%>
+                        <input type="checkbox" name="category" id="<%=category._id%>" value="<%=category._id%>" checked class="checkbox-input">
+                    <%}else{%>
+                        <input type="checkbox" name="category" id="<%=category._id%>" value="<%=category._id%>" class="checkbox-input">
+                    <%}%>
+                    <label for="<%=category._id%>"><%=category.name%></label>
+                </div>
+            <%})%>
+        </div>
+
+        <label for="description">Description:</label>
+        <input id="description" name="description" type="text" class="form-control" placeholder="Description"
+        value="<%= locals.item === undefined ? '' : locals.item.description %>">
+
+         <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+<%if(locals.errors){%>
+    <ul>
+        <%errors.forEach(function(error){%>
+            <li><%=error.msg%></li>
+        <%})%>
+    </ul>
+<%}%>

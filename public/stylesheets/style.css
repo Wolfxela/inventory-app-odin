@@ -1,8 +1,75 @@
 body {
-  padding: 50px;
+  height: 100vh;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+h1{
+  margin: 0px;
+  padding-left: 5vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  background-color: #0B60B0;
+  color: #F0EDCF;
+}
 a {
-  color: #00B7FF;
+  text-decoration: auto;
+  font-size: max(1vw,20px);
+  font-weight: 600;
+  color: #40A2D8;
+}
+.sidebar-nav{
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  min-height: 40px;
+  align-items: center;
+  gap: 10vw;
+  padding: 0px;
+  margin: 0px;
+}
+h2{
+  text-align: center;
+  font-size: xxx-large;
+}
+dt{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: x-large;
+}
+.listHolder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h3{
+  text-align: center;
+  margin-bottom: 0px;
+}
+.itemList{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.btn-form{
+  width: 150px;
+    height: 50px;
+    border-radius: 10px;
+}
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-group{
+  display: flex;
+    flex-direction: column;
+}
+.update-delete{
+  display: flex;
+  gap: 50px;
+}
+.items{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

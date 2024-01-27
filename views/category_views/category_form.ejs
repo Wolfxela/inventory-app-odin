@@ -1,0 +1,22 @@
+<h3><%=title%></h3>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text" class="form-control" placeholder="name" required
+         value="<%= locals.category === undefined ? '' : locals.category.name %>" >
+
+        <label for="description">Description:</label>
+        <input id="description" name="description" type="text" class="form-control" placeholder="Description"
+        value="<%= locals.category === undefined ? '' : locals.category.description %>">
+
+         <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+<%if(locals.errors){%>
+    <ul>
+        <%errors.forEach(function(error){%>
+            <li><%=error.msg%></li>
+        <%})%>
+    </ul>
+<%}%>

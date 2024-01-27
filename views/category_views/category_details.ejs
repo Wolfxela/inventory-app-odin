@@ -1,0 +1,25 @@
+<h2><%=title%></h2>
+<%if(items.length){%>
+
+    <div class="listHolder">
+        <div class="items">
+        <%items.forEach(function(item){%>
+            <dl>
+                <dt><a href="<%=item.url%>"><%=item.name%></a></dt>
+                <dd>Price: <%=item.price%></dd>
+                <dd>Tags:
+                     <%item.category.forEach(function(category){%><%=category.name%><%})%>
+                </dd>
+                <dd>Left in stock: <%=item.stock%></dd>
+                <dd>Description: <%=item.description%></dd>
+            </dl>
+        <%})%>
+        </div>
+        <div class="update-delete">
+            <a href="<%=category.url%>/delete">Delete Category</a>
+            <a href="<%=category.url%>/update">Update Category</a>
+        </div>
+    </div>
+<%}else{%>
+    <p>No items found for this category!</p>
+<%}%>

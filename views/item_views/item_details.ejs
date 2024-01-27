@@ -1,0 +1,16 @@
+<h2><%=title%></h2>
+
+        <div class="listHolder">
+            <dl class="itemList">
+                <h3>Price: <%=item.price%></h3>
+                <h3>Tags:
+                     <%item.category.forEach(function(category){%><%=category.name%><%})%>
+                </h3>
+                <h3>Left in stock: <%=item.stock%></h3>
+                <h4><%=item.description%></h4>
+            </dl>
+            <div class="update-delete">
+                <a href="<%=item.url%>/delete">Delete Item</a>
+                <a href="<%=item.url%>/update">Update Item</a>
+            </div>
+        </div>

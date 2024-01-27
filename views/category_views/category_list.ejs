@@ -1,0 +1,16 @@
+<h2><%=title%></h2>
+<%if(categories.length){%>
+
+    <div class="listHolder">
+        <div class="categories">
+        <%categories.forEach(function(category){%>
+            <dl>
+                <dt><a href="<%=category.url%>"><%=category.name%></a></dt>
+                <dd><%=category.description%></dd>
+            </dl>
+        <%})%>
+        </div>
+    </div>
+<%}else{%>
+    <p>No categories found!</p>
+<%}%>

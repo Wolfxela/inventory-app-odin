@@ -1,0 +1,19 @@
+<h2><%=title%></h2>
+<%if(items.length){%>
+    <h3>Please delete all items from category first!</h3>
+    <h3>Remaining items:</h3>
+    <div class="listHolder">
+        <div class="categories">
+        <%items.forEach(function(item){%>
+            <dl>
+                <dt><a href="<%=item.url%>"><%=item.name%></a></dt>
+            </dl>
+        <%})%>
+        </div>
+    </div>
+<%}else{%>
+    <form method="post">
+        <input type="hidden" name="categoryID" id="categoryID" value="<%=category._id%>">
+        <button class="btn-form" type="submit">Delete Category</button>
+    </form>
+<%}%>
