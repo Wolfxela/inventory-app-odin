@@ -21,5 +21,11 @@
         </div>
     </div>
 <%}else{%>
-    <p>No items found for this category!</p>
+    <div class="listHolder">
+        <p>No items found for this category!</p>
+            <div class="update-delete">
+                <a href="<%=category.url%>/delete">Delete Category</a>
+                <a href="<%=category.url%>/update">Update Category</a>
+            </div>
+    </div>
 <%}%>

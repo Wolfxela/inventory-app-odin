@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 const expressLayouts = require("express-ejs-layouts")
 const compression = require("compression")
 const helmet = require("helmet")
-const limiter = require("express-rate-limit")
+const RateLimit = require("express-rate-limit")
 
 mongoose.set("strictQuery",false)
 const mongoDBdev = "mongodb+srv://wolfxela:Idontlikefoxes@cluster0.jaetlnh.mongodb.net/local_library?retryWrites=true&w=majority"
@@ -16,10 +16,10 @@ const mainDB = process.env.DB || mongoDBdev
 const catalogRouter = require('./routes/catalog')
 
 const app = express();
-const limit = new limiter({
+const limiter = RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
-  max: 200,
-})
+  max: 50,
+});
 main().catch((err)=>{console.log(err)})
 
 async function main(){
@@ -29,8 +29,8 @@ async function main(){
 // view engine setup
 app.set('views', path.join(__dirname, 'views/'));
 app.set('view engine', 'ejs');
-app.use(limit())
 app.use(helmet())
+app.use(limiter)
 app.use(expressLayouts)
 app.use(logger('dev'));
 app.use(express.json());
